@@ -1,0 +1,20 @@
+# Terraform working files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+.terraform.tfstate.lock.info
+
+# Sensitive configuration
+*.tfvars
+*.tfvars.json
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+
+# Private interview preparation
+.private/

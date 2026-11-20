@@ -1,0 +1,13 @@
+services:
+  floci:
+    image: floci/floci@sha256:b3b3a70a294b8ba8095385b8571ea1e4d44d494950d98de5e812cd9de02f506b
+    pull_policy: never
+    container_name: aws-application-floci
+    ports:
+      - "127.0.0.1:4567:4566"
+    volumes:
+      - floci-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  floci-data:

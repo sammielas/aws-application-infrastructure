@@ -1,2 +1,0 @@
-
-resource "invalid_test" {

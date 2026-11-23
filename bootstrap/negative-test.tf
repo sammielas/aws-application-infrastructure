@@ -1,0 +1,2 @@
+
+resource "invalid_test" {

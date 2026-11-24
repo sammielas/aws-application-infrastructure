@@ -45,3 +45,17 @@ repos:
         language: system
         files: .*
         pass_filenames: false
+
+      - id: terraform-validate-infrastructure
+        name: Terraform infrastructure validation
+        entry: terraform -chdir=infrastructure validate
+        language: system
+        files: ^infrastructure/.*\.tf$
+        pass_filenames: false
+
+      - id: tflint-infrastructure
+        name: TFLint infrastructure
+        entry: tflint --chdir=infrastructure
+        language: system
+        files: ^infrastructure/.*\.tf$
+        pass_filenames: false

@@ -65,5 +65,11 @@ jobs:
       - name: Initialize Terraform bootstrap
         run: terraform -chdir=bootstrap init -backend=false -lockfile=readonly
 
+      - name: Initialize Terraform infrastructure
+        run: terraform -chdir=infrastructure init -backend=false
+
       - name: Run quality gates
         run: pre-commit run --all-files --show-diff-on-failure
+
+      - name: Scan repository history for secrets
+        run: gitleaks git --log-opts="--all" --redact --verbose --exit-code 1 .

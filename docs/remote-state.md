@@ -112,3 +112,34 @@ Git references independently of local staged scanning.
   security or durability guarantees.
 - Production IAM enforcement has not been validated.
 - Full disaster recovery testing is outside this ticket.
+
+## SonarCloud Security Risk Acceptance
+
+Reviewed: 2026-11-24
+Scope: Isolated local Floci environment only.
+
+### terraform:S6249 - HTTPS-only access
+
+Status: Accepted
+
+The emulator uses HTTP over a loopback-bound endpoint
+with dummy credentials and disposable infrastructure.
+
+Residual risk: State traffic is not encrypted in transit.
+
+Review requirement: Implement and validate TLS and
+HTTPS-only enforcement before production deployment.
+
+### terraform:S6258 - Resource access logging
+
+Status: Accepted
+
+S3 access logging is deferred to operational readiness,
+consistent with the existing Checkov CKV_AWS_18 exception.
+
+Residual risk: Reduced visibility into state bucket access.
+
+Review requirement: Project 1, Checkpoint 3.
+
+Neither acceptance authorizes production deployment
+without further security assessment.

@@ -55,7 +55,7 @@ repos:
 
       - id: tflint-infrastructure
         name: TFLint infrastructure
-        entry: tflint --chdir=infrastructure
+        entry: tflint --chdir=infrastructure --recursive
         language: system
         files: ^infrastructure/.*\.tf$
         pass_filenames: false
